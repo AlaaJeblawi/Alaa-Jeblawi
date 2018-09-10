@@ -1,0 +1,71 @@
+<app-nav></app-nav>
+
+<div class="bg1">
+  <div class="container">
+    <div class="row">
+    <div class="text-center">
+
+        <br/>
+        <br/>
+        <table class="table table-striped table-condensed c">
+          <thead>
+            <tr>
+              <th> </th>
+              <th>Quantity</th>
+              <th>Model</th>
+              <th class="text-right">Price</th>
+              <th class="text-right">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="cart.selections.length == 0">
+              <td colspan="4" class="text-xs-center">
+                Your cart is empty
+              </td>
+            </tr>
+            <tr *ngFor="let sel of cart.selections">
+              <td>
+                <img src={{sel.img}} style="width:250px;height:200px;"/> </td>
+              <td>
+                <input type="number" class="form-control-sm" style="width:5em" [(ngModel)]="sel.quantity" />
+              </td>
+              <td>{{sel.name}}</td>
+              <td class="text-right">
+                {{sel.price | currency:"USD":true:"2.2-2"}}
+              </td>
+              <td class="text-right">
+                {{(sel.quantity * sel.price) | currency:"USD":true:"2.2-2" }}
+              </td>
+              <td class="text-center">
+                <button class="btn btn-sm btn-warning" (click)="cart.updateQuantity(sel.id, 0)">
+                  Remove
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3" class="text-right">Total:</td>
+              <td class="text-right">
+                {{cart.totalPrice | currency:"USD":true:"2.2-2"}}
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="row">
+        <button class="btn btn-primary" [routerLink]="['/models']">
+          Continue Shopping
+        </button>
+
+        <button class="btn btn-danger " (click)="cart.clear()" style="margin-left:10px;">
+          Clear the Cart
+        </button>
+      </div>
+    </div>
+      <br><br><br>
+      
+    </div>
+  </div>
+</div>
+  
+<app-footer></app-footer>

@@ -1,0 +1,39 @@
+.bg{
+    margin-top:5px;
+    width: 100%;
+    height: 100vh;  
+    background: url('/assets/angle-bg.png') no-repeat scroll center bottom -150px / 100% auto;
+    background-color: rgba(0, 151, 215, .1);
+}
+
+
+p{
+    margin-top:150px;
+    font-size: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 20px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    width: 160px;
+    font-size: 18px;
+    height: 60px;
+    color: #138fc2;
+    background-color: #fff;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    margin-top: 50px;
+    border: none;
+    -webkit-box-shadow: 2px 5px 20px -5px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 5px 20px -5px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+    color: #fff;
+    background-color: #2f60c3;   
+}
+
+
+

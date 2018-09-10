@@ -1,0 +1,39 @@
+<app-nav></app-nav>
+<div class="bg">
+  <div class="container">
+    <button class="btn btn-lg ml" style="float:right" [disabled]="cart.itemCount == 0" routerLink="/cart">
+      <i class="fa fa-shopping-cart"></i>
+    </button>
+    <section *ngIf="hp" class="panel-body">
+      <table class="table table-striped table-condensed c">
+        <thead>
+          <tr>
+            <th style="width:20%;"></th>
+            <th style="width:20%;">Model Name</th>
+            <th style="width:20%;">Price</th>
+            <th style="width:20%;">More Details</th>
+            <th style="width:20%;"> </th>
+          </tr>
+        </thead>
+        <tr *ngFor="let model of hp">
+          <td>
+            <img src={{model.img}} style="width:250px;height:200px;" /> </td>
+          <td>{{model.name}} </td>
+          <td>{{model.price| currency:"USD":true:"2.2-2"}} </td>
+          <td>
+            <button class="float-center btn btn-sm btn-warning " [routerLink]="['/details',model.id]">
+              See details
+            </button>
+          </td>
+          <td>
+            <button class="float-center btn btn-sm btn-primary " (click)="addToCart(model)">
+              Add to Cart
+            </button>
+          </td>
+
+        </tr>
+      </table>
+    </section>
+  </div>
+</div>
+<app-footer></app-footer>
